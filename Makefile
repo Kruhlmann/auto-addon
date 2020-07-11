@@ -7,3 +7,6 @@ build:
 	    ./src/config/handler.cpp \
 	    ./src/io/io.cpp \
 		-lstdc++fs
+
+run: build
+	./bin/auto-addon

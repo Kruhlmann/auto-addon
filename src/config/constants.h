@@ -21,6 +21,11 @@ const char DECIMAL = '.';
 const char COMMA = ',';
 
 const string DEFAULT_CONFIG_FILENAME = "config.ini";
+const char* DEFAULT_CONFIG_CONTENTS =
+    "# Auto generated configuration file\n"
+    "[fs]\n"
+    "addons_folder=~/Games/lutris/battlenet/drive_c/"
+    "Program Files (x86)/World of Warcraft/_classic_/Interface/AddOns\n";
 
 } // namespace constants
 

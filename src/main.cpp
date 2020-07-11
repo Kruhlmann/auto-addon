@@ -10,6 +10,7 @@ using std::string;
 int main() {
     string config_path = config::get_default_config_file_path();
     std::cout << "Reading configuration at " + config_path << std::endl;
+    config::make_config_if_not_exists();
     config::load_config();
     return 0;
 }

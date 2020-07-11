@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdio>
+#include <ostream>
 #include <string>
 #include <sstream>
 #include <experimental/filesystem>
@@ -25,7 +26,6 @@ string get_default_config_file_path() {
     return config_directory + constants::DEFAULT_CONFIG_FILENAME;
 }
 
-
 Handler* load_config() {
     return load_config(get_default_config_file_path());
 }
@@ -48,6 +48,18 @@ Handler* load_config(string config_file_path) {
     // Load the config since it's now been verified to exist.
     handler.load(config_file_path);
     return &handler;
+}
+
+void make_config_if_not_exists(string config_file_path) {
+    std::ofstream stream;
+    stream.open(config_file_path);
+    if (!stream) {
+        std::cout << "Error opening " + config_file_path << std::endl;
+    }
+    stream << constants::DEFAULT_CONFIG_CONTENTS;
+    if (!stream) {
+        std::cout << "Error writing to " + config_file_path << std::endl;
+    }
 }
 
 } // namespace config
