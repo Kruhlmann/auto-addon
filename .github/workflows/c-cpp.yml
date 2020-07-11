@@ -1,8 +1,8 @@
 name: Make
 
 on:
-  push:
-    branches-ignore: [ master ]
+push:
+    branches: '*'
   pull_request:
     branches: [ master ]
 
